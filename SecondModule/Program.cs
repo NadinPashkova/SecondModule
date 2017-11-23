@@ -22,9 +22,8 @@ namespace SecondModule
 
             var generalList = new GeneralList(inputText);
 
-		    generalList.SplitInputData();
+			generalList.PrintFileList();
 
-
-        }
+		}
 	}
 }

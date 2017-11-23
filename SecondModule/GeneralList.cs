@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SecondModule
 {
     public class GeneralList
@@ -18,16 +19,17 @@ namespace SecondModule
 
         public GeneralList(string input)
         {
-            TextFileList = new List<TextFile>();
-            ImageFileList = new List<ImageFile>();
-            MovieFileList = new List<MovieFile>();
             _input = input;
+			SplitInputData();
+		}
 
-        }
-
-        public void SplitInputData()
+        private void SplitInputData()
         {
-            var split = _input.Split('\n').Select(x => x.Trim());
+			TextFileList = new List<TextFile>();
+			ImageFileList = new List<ImageFile>();
+			MovieFileList = new List<MovieFile>();
+
+			var split = _input.Split('\n').Select(x => x.Trim());
 
             foreach (var fileInfo in split)
             {
@@ -40,7 +42,7 @@ namespace SecondModule
 
                 var categoryEnum = (FileType)Enum.Parse(typeof(FileType), category);
 
-                FillInList(categoryEnum, stringToParse);
+	             FillInList(categoryEnum, stringToParse);
             }
         }
 
@@ -49,21 +51,36 @@ namespace SecondModule
             switch (fileType)
             {
                 case FileType.Text:
-                    TextFileList.Add(new TextFile { StringToParse = stringToParse });
+                    TextFileList.Add(new TextFile(stringToParse));
                     break;
                 case FileType.Image:
-                    ImageFileList.Add(new ImageFile { StringToParse = stringToParse });
+                    ImageFileList.Add(new ImageFile(stringToParse));
                     break;
                 default:
-                    MovieFileList.Add(new MovieFile { StringToParse = stringToParse });
+                    MovieFileList.Add(new MovieFile(stringToParse));
                     break;
             }
         }
 
-        public void GetFileTypeList()
+        public void PrintFileList()
         {
-            var test = new object[] { TextFileList, ImageFileList, MovieFileList };
+			if (TextFileList.Any())
+			{
+				Console.WriteLine(FileType.Text);
 
-        }
+				TextFileList.OrderBy(d => d.SizeInBytes);
+
+				foreach (var file in TextFileList)
+				{
+					file.Print();
+				}
+
+			}
+
+			Console.ReadKey();
+
+		}
+
+		
     }
 }

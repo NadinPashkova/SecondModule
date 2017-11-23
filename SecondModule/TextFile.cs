@@ -10,9 +10,17 @@ namespace SecondModule
 	{
 		public string Content { get; set; }
 
-		public override void ParseString()
+		public TextFile(string stringToParse) : base(stringToParse)
 		{
-			throw new NotImplementedException();
+			Content = stringToParse.Substring(stringToParse.IndexOf(';')+1);
+		}
+		
+		public override void Print()
+		{
+			Console.WriteLine($@"{FileName}
+								Extention : '{Extention}'
+								Size : '{Size}'
+								Content : '{Content}'");
 		}
 	}
 }
