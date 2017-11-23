@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +18,13 @@ namespace SecondModule
 				 Text:data.txt(12B); Another string
 				  Text:data1.txt(7B); Yet another string
 					Movie:logan.2017.mkv(19GB); 1920х1080; 2h12m";
+		
+
+            var generalList = new GeneralList(inputText);
+
+		    generalList.SplitInputData();
 
 
-
-			var split = inputText.Split('\n');
-
-
-			foreach (FileType filetype in Enum.GetValues(typeof(FileType)))
-			{
-				
-
-			}
-
-		}
+        }
 	}
 }
