@@ -18,9 +18,9 @@ namespace SecondModule
 		public override void Print()
 		{
 			Console.WriteLine($@"{FileName}
-								Extention : '{Extention}'
-								Size : '{Size}'
-								Content : '{Content}'");
+			Extention : '{Extention}'
+			Size : '{Size}'
+			Content : '{Content}'");
 		}
 	}
 }

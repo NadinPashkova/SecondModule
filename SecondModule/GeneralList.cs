@@ -66,11 +66,11 @@ namespace SecondModule
         {
 			if (TextFileList.Any())
 			{
-				Console.WriteLine(FileType.Text);
+				Console.WriteLine(FileType.Text + "files:");
 
-				TextFileList.OrderBy(d => d.SizeInBytes);
+				var sortedList = TextFileList.OrderBy(d => d.SizeInBytes);
 
-				foreach (var file in TextFileList)
+				foreach (var file in sortedList)
 				{
 					file.Print();
 				}
