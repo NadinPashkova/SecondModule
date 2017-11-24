@@ -45,14 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileListBase.cs" />
-    <Compile Include="FileType.cs" />
-    <Compile Include="GeneralList.cs" />
-    <Compile Include="ImageFile.cs" />
-    <Compile Include="MovieFile.cs" />
+    <Compile Include="DTO\FileListBase.cs" />
+    <Compile Include="DTO\FileType.cs" />
+    <Compile Include="DTO\GeneralList.cs" />
+    <Compile Include="DTO\ImageFile.cs" />
+    <Compile Include="DTO\MovieFile.cs" />
+    <Compile Include="Providers\ParsePatternProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextFile.cs" />
+    <Compile Include="DTO\TextFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
